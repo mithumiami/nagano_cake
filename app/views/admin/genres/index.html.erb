@@ -1,29 +1,33 @@
-<h1>GENRES</h1>
+<h1>ジャンル一覧</h1>
 
-<h3>ケーキ</h3>
-<h3>プリン</h3>
-<h3>焼き菓子</h3>
-<h3>キャンディ</h3>
-<% @genres.each do |genre| %>
-        <div class="genre-item">
-          <section class="genre-text">
+<table>
+  <h3>ケーキ</h3>
+  <h3>プリン</h3>
+  <h3>焼き菓子</h3>
+  <h3>キャンディ</h3>
+  <% @genres.each do |genre| %>
+      <tr>
+          <div class="genre-item">
+            <section class="genre-text">
 
-            <h3 class="genre-heading"><%= genre.title %></h3>
+              <td><h3 class="genre-heading"><%= genre.title %></h3></td>
 
-            <%= link_to "Edit", edit_admin_genre_path(genre.id) %>
+              <td><%= link_to "Edit", edit_admin_genre_path(genre.id) %></td>
 
-          </section>
-        </div>
-      <% end %>
+            </section>
 
+          </div>
+        <% end %>
+      </tr>
+</table>
 
-<h3>New Genres</h3>
+<h3>新規登録</h3>
 
 <%= form_with model:@genre, local:true do |f| %>
 
-  <h4>Genre</h4>
+  <h4>ジャンル名</h4>
   <%= f.text_field :title %>
 
-  <%= f.submit 'New Genre' %>
+  <%= f.submit '新規登録' %>
 
 <% end %>

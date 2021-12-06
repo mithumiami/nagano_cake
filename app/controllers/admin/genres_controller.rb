@@ -8,9 +8,6 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.new
   end
 
-  def show
-  end
-
   def edit
      @genre = Genre.find(params[:id])
   end
@@ -22,6 +19,9 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
+    genre = Genre.find(params[:id])
+    genre.update(genre_params)
+    redirect_to admin_genres_path
   end
 
 end

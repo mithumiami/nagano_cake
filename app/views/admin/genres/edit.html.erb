@@ -1,6 +1,6 @@
 <h1>Edit Genre</h1>
 
-<%= form_with model:@genre, local:true do |f| %>
+<%= form_with model:@genre, url: admin_genres_path do |f| %>
 
   <h4>Genre</h4>
   <%= f.text_field :title %>

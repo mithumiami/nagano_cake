@@ -1,0 +1,29 @@
+<h2>商品一覧</h2>
+
+<table>
+  <% @products.each do |product| %>
+      <tr>
+          <div class="product-item">
+            <section class="product-text">
+
+              <td><h3 class="product-heading"><%= product.title %></h3></td>
+
+              <td><%= link_to "Edit", edit_admin_product_path(product.id) %></td>
+
+            </section>
+
+          </div>
+        <% end %>
+      </tr>
+</table>
+
+<h3>新規登録</h3>
+
+<%= form_with model:@product, local:true do |f| %>
+
+  <h4>商品名</h4>
+  <%= f.text_field :title %>
+
+  <%= f.submit '新規登録' %>
+
+<% end %>
