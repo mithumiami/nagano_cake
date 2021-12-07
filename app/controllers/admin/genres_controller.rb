@@ -28,5 +28,5 @@ end
 
  private
   def genre_params
-    params.permit(:title)
+    params.require(:genre).permit(:title)
   end
