@@ -15,7 +15,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
-
+     @product = Product.find(params[:id])
   end
 
   def edit
@@ -23,6 +23,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(user_params)
+      flash[:notice] = "User info was successfully updated."
+      redirect_to admin_products_path(@product.id)
+    else
+      render :edit
+    end
 
   end
 

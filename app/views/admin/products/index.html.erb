@@ -8,7 +8,9 @@
 
               <td><h3 class="product-heading"><%= product.title %></h3></td>
 
-              <td><%= link_to "Edit", edit_admin_product_path(product.id) %></td>
+              <td><%= link_to "詳細", admin_product_path(product.id) %></td>
+
+              <td><%= link_to "編集", edit_admin_product_path(product.id) %></td>
 
             </section>
 
