@@ -1,19 +1,50 @@
-<h2>詳細画面</h2>
-<h4>名前（姓・名）</h4>
-<div><%= @customer.title %></div>
+<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
 
-<h4>名前（カナ性・カナ名）</h4>
-<div><%= @customer.body %></div>
+<table>
 
-<h4>郵便番号</h4>
-<div><%= @product.price %></div>
+    <tr>
+    <td><h4>会員ID</h4></td>
+    <td><div><%= @customer.id %></div></td>
+    </tr>
 
-<h4>住所</h4>
-<div><%= @product.price %></div>
+    <tr>
+      <td><h4>氏名</h4></td>
+      <td><div><%= @customer.last_name %><%= @customer.first_name %></div></td>
+    </tr>
 
-<h4>電話番号</h4>
-<div><%= @product.price %></div>
+    <tr>
+      <td><h4>フリガナ</h4></td>
+      <td><div><%= @customer.last_name_kana %><%= @customer.first_name_kana %></div></td>
+    </tr>
 
-<h4>メールアドレス</h4>
-<div><%= @product.price %></div>
+    <tr>
+      <td><h4>郵便番号</h4></td>
+      <td><div><%= @customer.postal_code %></div></td>
+    </tr>
+
+    <tr>
+      <td><h4>住所</h4></td>
+      <td><div><%= @customer.address %></div></td>
+    </tr>
+
+    <tr>
+      <td><h4>電話番号</h4></td>
+      <td><div><%= @customer.telephone_number %></div></td>
+    </tr>
+
+    <tr>
+      <td><h4>メールアドレス</h4></td>
+      <td><div><%= @customer.email %></div></td>
+    </tr>
+
+    <tr>
+      <td><h4>会員ステータス</h4></td>
+      <td><div><%= @customer.is_active %></div></td>
+    </tr>
+
+</table>
+
+<%= link_to "編集する",  edit_admin_customer_path %>
+<h6>注文履歴一覧を見る</h6>
+
 

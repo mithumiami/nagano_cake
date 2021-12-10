@@ -2,6 +2,7 @@ class Admin::ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
   end
 
   def new
@@ -34,5 +35,5 @@ end
 
  private
   def product_params
-    params.permit(:title, :body, :price)
+    params.require(:book).permit(:title, :body, :price, :image)
   end
