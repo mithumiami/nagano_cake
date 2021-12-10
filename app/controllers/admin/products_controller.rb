@@ -23,12 +23,9 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(user_params)
-      flash[:notice] = "User info was successfully updated."
-      redirect_to admin_products_path(@product.id)
-    else
-      render :edit
-    end
+    product = Product.find(params[:id])
+    product.update(product_params)
+    redirect_to admin_products_path
 
   end
 
@@ -37,5 +34,5 @@ end
 
  private
   def product_params
-    params.permit(:title)
+    params.permit(:title, :body, :price)
   end

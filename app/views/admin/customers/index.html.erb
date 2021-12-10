@@ -1,0 +1,20 @@
+<h2>会員一覧</h2>
+
+<table>
+  <% @customers.each do |customer| %>
+      <tr>
+          <div class="customer-item">
+            <section class="customer-text">
+
+              <td><h3 class="customer-heading"><%= customer.email %></h3></td>
+
+              <td><%= link_to "詳細", admin_customer_path(customer.id) %></td>
+
+              <td><%= link_to "編集", edit_admin_customer_path(customer.id) %></td>
+
+            </section>
+
+          </div>
+        <% end %>
+      </tr>
+</table>
