@@ -35,5 +35,5 @@ end
 
  private
   def product_params
-    params.require(:book).permit(:title, :body, :price, :image)
+    params.require(:product).permit(:title, :body, :price, :image)
   end
