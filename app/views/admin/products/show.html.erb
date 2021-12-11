@@ -1,14 +1,27 @@
-<h2>商品詳細</h2>
+<p id="notice"></p>
+<div class="container">
 
-<h4>商品画像</h4>
+        <h4>商品詳細</h4>
 
-<h4>商品名</h4>
-<div><%= @product.title %></div>
+    <div class="row">
+        <div class="col-md-4 ">
+            <h4>商品画像</h4>
+        </div>
 
-<h4>商品説明文</h4>
-<div><%= @product.body %></div>
+        <div class="col-md-8 offset-md-1">
+            <h4>商品名</h4>
+            <div><%= @product.title %></div>
 
-<h4>税抜価格</h4>
-<div><%= @product.price %></div>
+            <h4>商品説明文</h4>
+            <div><%= @product.body %></div>
 
-<%=link_to "編集する", edit_admin_product_path %>
+            <h4>税抜価格</h4>
+            <div><%= @product.price %>円</div>
+
+            <%=link_to "編集する", edit_admin_product_path %>
+        </div>
+
+    </div>
+ </div>
+</div>
+

@@ -1,20 +1,38 @@
-<h3>新規登録</h3>
-
-<%= form_with model: @product, url: admin_products_path, local:true do |f| %>
-
-  <h4>商品画像</h4>
-  <%= f.attachment_field :image %>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
 
-  <h4>商品名</h4>
-  <%= f.text_field :title %>
 
-  <h4>商品説明</h4>
-  <%= f.text_area :body %>
+        <h4>新規登録</h4>
 
-   <h4>商品価格</h4>
-  <div><%= f.text_field :price %>円</div><br />
+        <%= form_with model: @product, url: admin_products_path, local:true do |f| %>
 
-  <%= f.submit '新規登録' %>
+          <div class="form-group">
+            <label>商品画像</label>
+            <%= f.attachment_field :image %>
+          </div>
 
-<% end %>
+          <div class="form-group">
+            <label>商品名</label>
+            <%= f.text_field :title %>
+          </div>
+
+          <div class="form-group">
+            <label>商品説明</h4>
+            <%= f.text_area :body %>
+          </div>
+
+          <div class="form-group">
+            <label>商品価格</label>
+            <div><%= f.text_field :price %>円</div>
+          </div>
+
+            <%= f.submit '新規登録' %>
+
+      </div>
+    </div>
+  </div>
+
+  <% end %>

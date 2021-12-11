@@ -1,31 +1,45 @@
-<h3>商品一覧</h3>
 
-<h1><%= link_to "+", new_admin_product_path %></h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜き価格</th>
-    </tr>
-  </thead>
-  <% @products.each do |product| %>
-      <tr>
-          <div class="product-item">
-            <section class="product-text">
-
-              <td><h3 class="product-id"><%= product.id %></h3></td>
-
-              <td><h3 class="product-heading"><%=link_to product.title, admin_product_path(product.id) %></h3></td>
-
-              <td><h3 class="product-price"><%= product.price %>円</h3></td>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
 
 
-            </section>
+          <h4 class="my-3 ml-3">商品一覧</h4>
 
-          </div>
-        <% end %>
-      </tr>
-</table>
+          <h1><%= link_to "+", new_admin_product_path %></h1>
 
+          <table class="table">
+            <thead>
+              <tr>
+                <th>商品ID</th>
+                <th>商品名</th>
+                <th>税抜き価格</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            <% @products.each do |product| %>
+                <tr>
+                    <div class="product-item">
+                      <section class="product-text">
+
+                        <td><p class="product-id"><%= product.id %><p></td>
+
+                        <td><u class="product-heading"><%=link_to product.title, admin_product_path(product.id), class: 'text-dark' %></u></td>
+
+                        <td><p class="product-price"><%= product.price %>円</p></td>
+
+
+                      </section>
+
+                    </div>
+
+                </tr>
+              </tbody>
+              <% end %>
+          </table>
+
+      </div>
+    </div>
+  </div>

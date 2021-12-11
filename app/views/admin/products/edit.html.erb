@@ -1,18 +1,30 @@
-<h2>商品名編集</h2>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-4 h-25 text-left" ><h5>商品名編集</h5></div>
+
+    <div class="col-sm-12 col-md-8 col-lg-8 px-5 px-sm-0 mx-auto">
+
+
+      <table>
+
         <%= form_with model: @product, url: admin_product_path(@product.id),local: true do |f| %>
-        　<h4>商品画像</h4>
+        　<h6>商品画像</h6>
         　 <%= f.attachment_field :image %>
 
-          <h4>商品名</h4>
+          <h6>商品名</h6>
             <%= f.text_field :title %>
 
-          <h4>商品説明</h4>
+          <h6>商品説明</h6>
             <%= f.text_area :body %>
 
-          <h4>税抜価格</h4>
-            <div><%= f.text_field :price %>円</div>
+          <h6>税抜価格</h6>
+            <div><%= f.text_field :price %>円</div><br />
 
-
-
-            <%= f.submit '変更を保存' %>
+            <%= f.submit '変更を保存',class:'btn btn-success' %>
         <% end %>
+      </table>
+    </div>
+  </div>
+</div>
