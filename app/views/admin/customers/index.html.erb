@@ -22,7 +22,7 @@
 
               <td><h3 class="customer-heading"><%= customer.email %></h3></td>
 
-              <td><h3 class="customer-heading"><%= customer.is_active %></h3></td>
+              <td><h3 class="customer-heading"><%= customer.is_active ? '有効' : '退会' %> </h3></td>
 
               <td><%= link_to "詳細", admin_customer_path(customer.id) %></td>
 

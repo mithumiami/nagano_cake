@@ -23,6 +23,13 @@ Rails.application.routes.draw do
 
   scope module: :public do
     get 'about' => 'homes#about'
+     resources :products, only: [:index, :show]
+     resources :customers, only: [:edit, :update, :show]
+     resources :deliveries, only: [:index, :edit, :create, :update, :destroy,]
+     get '/customers/:id/check' => 'customers#check', as: 'check'         #顧客の退会確認画面
+     patch '/customers/:id/goodbye' => 'customers#goodbye', as:'goodbye'    #顧客の退会処理（ステータスの更新）
+
+
   end
 
 

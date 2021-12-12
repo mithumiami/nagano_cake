@@ -1,0 +1,44 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+
+
+          <h4 class="my-3 ml-3">商品一覧</h4>
+
+
+
+          <table class="table">
+            <thead>
+              <tr>
+
+                <th>商品名</th>
+                <th>税抜き価格</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            <% @products.each do |product| %>
+                <tr>
+                    <div class="product-item">
+                      <section class="product-text">
+
+                        <td><p class="product-img">img<p></td>
+
+                        <td><u class="product-heading"><%=link_to product.title, product_path(product.id), class: 'text-dark' %></u></td>
+
+                        <td><p class="product-price"><%= product.price %>円</p></td>
+
+
+                      </section>
+
+                    </div>
+
+                </tr>
+              </tbody>
+              <% end %>
+          </table>
+
+      </div>
+    </div>
+  </div>

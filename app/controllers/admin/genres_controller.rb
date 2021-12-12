@@ -24,9 +24,10 @@ class Admin::GenresController < ApplicationController
     redirect_to admin_genres_path
   end
 
-end
-
- private
+private
   def genre_params
     params.permit(:title)
   end
+
+end
+
