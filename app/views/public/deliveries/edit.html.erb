@@ -1,6 +1,6 @@
 <h1>配送先編集</h1>
 
-  <%= form_with model: @delivery, url: delivery_path(current_customer.id),local: true do |f| %>
+  <%= form_with model: @delivery, url: delivery_path(@delivery.id),local: true do |f| %>
 
     <h4>郵便番号</h4>
     <%= f.text_field :postal_code %>

@@ -47,7 +47,11 @@
 
         <tr>
           <td><h4>会員ステータス</h4></td>
-          <td><%= f.text_field :is_active %></td>
+          <td><%= f.label :is_active, '有効' %>
+              <%= f.radio_button :is_active, true %>
+
+              <%= f.label :is_active, '退会済み' %>
+              <%= f.radio_button :is_active, false %></td>
         </tr>
 
 
