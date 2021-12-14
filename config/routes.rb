@@ -29,7 +29,7 @@ Rails.application.routes.draw do
      get '/customers/:id/check' => 'customers#check', as: 'check'         #顧客の退会確認画面
      patch '/customers/:id/goodbye' => 'customers#goodbye', as:'goodbye'    #顧客の退会処理（ステータスの更新）
      resources :cart_items, only: [:index, :update, :destroy, :create]
-     patch '/cart_items/:id/delete' => 'cart_items#delete', as: 'delete'
+     delete '/cart_items/:id/delete' => 'cart_items#delete', as: 'delete'
 
 
   end

@@ -1,4 +1,4 @@
-<h4>ショッピングカート</h4><p>カートを空にする</p>
+<h4>ショッピングカート</h4><p><%= link_to "カートを空にする",  cart_item_path(current_customer.id), method: :delete, class: 'btn btn-danger' %></p>
 
 
 <table>
@@ -22,12 +22,14 @@
 
               <td><%= cart_item.product.with_tax_price %></td>
 
-              <td><%= cart_item.amount %><p>変更</p></td>
+              <%= form_with model: @cart_item do |f|%>
+
+              <td><%= f.select :amount, *[1..10], {selected: cart_item.amount},{} %><%= f.submit '変更' %></td><% end %>
 
               <td><%= cart_item.subtotal %></td>
                <% @sum +=  cart_item.subtotal %>
 
-               <td>削除する</td>
+               <td><%= link_to "削除する", delete_path(current_customer.id), method: :delete, class: 'btn btn-danger' %></td>
 
             </section>
           </div>
@@ -37,7 +39,9 @@
   </tbody>
 </table>
 
-<p>買い物を続ける</p>
+<p><%=link_to "買い物を続ける", root_path, class: 'btn btn-primary' %></p>
 
 <label>合計金額</label>
 <div><%= @sum %></div>
+
+<%= link_to "情報入力に進む", class: 'btn btn-success' %>
