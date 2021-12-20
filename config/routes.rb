@@ -18,18 +18,23 @@ Rails.application.routes.draw do
     resources :products, only: [:create, :new, :edit, :update, :index, :show]
     resources :post_images, only: [:new, :create, :index, :show, :destroy]
     resources :customers, only: [:create, :edit, :update, :index, :show]
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:edit, :update]
   end
 
   scope module: :public do
-    get 'about' => 'homes#about'
+     get 'about' => 'homes#about'
      resources :products, only: [:index, :show]
      resources :customers, only: [:edit, :update, :show]
      resources :deliveries, only: [:index, :edit, :create, :update, :destroy,]
      get '/customers/:id/check' => 'customers#check', as: 'check'         #顧客の退会確認画面
      patch '/customers/:id/goodbye' => 'customers#goodbye', as:'goodbye'    #顧客の退会処理（ステータスの更新）
+
      resources :cart_items, only: [:index, :update, :destroy, :create]
      delete '/cart_items/:id/delete' => 'cart_items#delete', as: 'delete'
+
+     resources :orders, only: [:index, :show, :new, :create]
+     get '/orders/thanks' => 'orders#thanks', as:'thanks'
+     get '/orders/:id/confirm' => 'orders#confirm', as:'confirm'
 
 
   end

@@ -1,0 +1,35 @@
+
+ <%= form_with model: @order, url: confirm_path(@customer.id), local: true do |f| %>
+
+<h4>注文情報入力</h4>
+
+
+<p>支払方法</p>
+
+
+<p>お届け先</p>
+
+    <div>
+      <%= f.radio_button :delivery_adress, :current_address, checked: true %>
+      <label>ご自身の住所</label>
+      <%= @customer.address %>
+    </div>
+
+    <div>
+      <%= f.radio_button :delivery_adress, :registerd_address %>
+      <label>登録先住所から選択</label>
+    </div>
+
+    <div>
+      <%= f.radio_button :delivery_adress, :current_address %>
+      <label>新しいお届け先</label><br />
+        <tr>
+        <td>郵便番号（ハイフンなし）</td><td><%= f.text_field :postal_code %></td><br />
+        <td>住所</td><td><%= f.text_field :address %></td><br />
+        <td>氏名</td><td><%= f.text_field :name %></td><br />
+        </tr>
+    </div>
+
+    <%= f.submit "確認画面へ進む"%>
+
+<% end %>

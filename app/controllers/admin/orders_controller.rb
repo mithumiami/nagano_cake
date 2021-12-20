@@ -1,10 +1,11 @@
 class Admin::OrdersController < ApplicationController
 
-  def index
+  def edit
+
   end
 
 
-  def show
+  def update
   end
 
 end
