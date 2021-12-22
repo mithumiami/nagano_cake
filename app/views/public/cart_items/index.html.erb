@@ -22,9 +22,10 @@
 
               <td><%= cart_item.product.with_tax_price %></td>
 
-              <%= form_with model: @cart_item do |f|%>
+              <%= form_with model: cart_item do |f|%>
 
-              <td><%= f.select :amount, *[1..10], {selected: cart_item.amount},{} %><%= f.submit '変更' %></td><% end %>
+              <td><%= f.select :amount, *[1..10], {selected: cart_item.amount},{} %><%= f.submit '変更' %></td>
+              <% end %>
 
               <td><%= cart_item.subtotal %></td>
                <% @sum +=  cart_item.subtotal %>

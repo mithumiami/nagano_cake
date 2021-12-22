@@ -18,11 +18,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def thanks
-    thanks
+
   end
 
   def confirm
-    confirm
+
   end
 
    private
