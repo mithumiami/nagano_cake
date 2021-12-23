@@ -1,16 +1,19 @@
 <div>
   <div>
       <h4>配送先登録/一覧</h4>
+      <label>郵便番号</label>
+      <label>住所</label>
+      <label>宛名</label>
 
-        <%= form_with model: @delivery, local:true do |f| %>
+    <%= form_with model: @delivery, local:true do |f| %>
 
-          <label>郵便番号</label>
+
           <%= f.text_field :postal_code %>
 
-          <label>住所</label>
+
           <%= f.text_field :address %>
 
-          <label>宛名</label>
+
           <%= f.text_field :name %>
 
           <%= f.submit '新規登録' %>
@@ -20,14 +23,15 @@
 
     <div>
       <table class = "delivery-table">
-        <% @deliveries.each do |delivery| %>
-            <tr>
-              <thead>
-                <tr>
                   <th>郵便番号</th>
                   <th>住所</th>
                   <th>宛名</th>
                   <th></th>
+        <% @deliveries.each do |delivery| %>
+            <tr>
+              <thead>
+                <tr>
+
                 </tr>
               </thead>
 

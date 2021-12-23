@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_12_14_231200) do
     t.string "name"
     t.integer "shipping_cost"
     t.integer "total_paymant"
-    t.integer "paymant_method"
+    t.integer "payment_method"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

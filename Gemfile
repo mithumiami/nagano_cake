@@ -68,3 +68,7 @@ gem "refile-mini_magick"
 
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+
+gem "enum_help"
+
+gem 'pry-byebug'
