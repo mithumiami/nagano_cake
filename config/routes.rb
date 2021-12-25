@@ -34,7 +34,9 @@ Rails.application.routes.draw do
 
      get '/orders/thanks' => 'orders#thanks', as:'thanks'
      get '/orders/confirm' => 'orders#confirm', as:'confirm'
-     resources :orders, only: [:index, :show, :new, :update]
+     resources :orders, only: [:index, :show, :new, :create]
+
+     resources :order_details, only: [:index]
 
 
 

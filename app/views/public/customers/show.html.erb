@@ -39,6 +39,6 @@
   </tbody>
  </table>
 
-  <h6>配送先</h6><%=link_to "一覧を見る",  deliveries_path(current_customer.id), class: 'btn btn-primary' %>
+  <td>配送先</td><td><%= link_to "一覧を見る",  deliveries_path(current_customer.id), class: 'btn btn-primary' %></td>
 
-  <h6>注文履歴一覧</h6>
+  <td>注文履歴一覧</td><td><%= link_to "一覧を見る", orders_path, class: 'btn btn-primary' %></td>

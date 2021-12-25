@@ -23,7 +23,7 @@
             </thead>
 
             <tbody>
-            <% @orders.each do |order| %>
+            <% order.order_details.each do |order_detail| %>
                 <tr>
                     <div class="product-item">
                       <section class="order">
@@ -35,8 +35,6 @@
                         <%= order.address %><br />
                         <%= order.name %>
                         </u></td>
-
-                         <td><u class="order-products"><%= prodcts.cart_item.order %></u></td>
 
                         <td><u class="order-price"><%= @sum+@shipping_cost %>円</u></td>
 

@@ -1,6 +1,9 @@
 class Public::OrdersController < ApplicationController
 
   def index
+    @orders = Order.all
+    @sum = 0
+    @shipping_cost = 800
   end
 
   def show
@@ -25,7 +28,7 @@ class Public::OrdersController < ApplicationController
       @order.name = current_customer.last_name + current_customer.first_name
 
     elsif  params[:order][:address_number]=="2"
-      @delivery = Delivery.find(current_customer.id)
+      @delivery = Delivery.find(params[:order][:address_id])
       @order.address = @delivery.address
       @order.postal_code = @delivery.postal_code
       @order.name = @delivery.name
@@ -39,16 +42,29 @@ class Public::OrdersController < ApplicationController
     @shipping_cost = 800
   end
 
-  def update
-  order = Order.find(params[:id])
-  order.update(order_params)
+  def create
+  @cart_items = current_customer.cart_items
+  order = Order.new(order_params)
+  order.save
+
+
+    @cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      order_detail.product_id = cart_item.product_id
+      order_detail.order_id = order.id
+      order_detail.price = cart_item.product.price
+      order_detail.amount = cart_item.amount
+
+      order_detail.save
+    end
   redirect_to thanks_path
-  CartItems.destroy_all
+  @cart_items.destroy_all
   end
 
    private
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :total_paymant, :shipping_cost)
+
   end
 
 

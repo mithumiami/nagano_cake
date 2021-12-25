@@ -2,6 +2,9 @@ class Admin::OrdersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
+    @order = Order.all
+    @sum = 0
+    @shipping_cost = 800
   end
 
 

@@ -3,6 +3,59 @@
 <td>配送先</td><td></td>
 <td>支払方法</td><td></td>
 
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+
+
+          <h4 class="my-3 ml-3">注文履歴一覧</h4>
+
+
+
+          <table class="table">
+            <thead>
+              <tr>
+
+                <th>購入日時</th>
+                <th>購入者</th>
+                <th>注文個数</th>
+
+
+              </tr>
+            </thead>
+
+            <tbody>
+            <% @orders.each do |order| %>
+                <tr>
+                    <div class="product-item">
+                      <section class="order">
+
+                        <td><u class="order-date"><%= order.updated_at %><u>
+                        </td>
+
+                        <td><u class="order-delivery">〒<%= order.postal_code %><br />
+                        <%= order.address %><br />
+                        <%= order.name %>
+                        </u></td>
+
+                        <td><u class="order-price"><%= @sum+@shipping_cost %>円</u></td>
+
+                         <td><u class="order-show"></u><%= link_to "表示する", class: 'btn btn-primary' %></td>
+
+
+                      </section>
+
+                    </div>
+
+                </tr>
+              </tbody>
+              <% end %>
+          </table>
+
+      </div>
+    </div>
+  </div>
 
 
 
