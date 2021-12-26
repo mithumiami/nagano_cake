@@ -36,11 +36,13 @@
                         <%= order.name %>
                         </u></td>
 
-                         <td><u class="order-products"><%= prodcts.cart_item.order %></u></td>
+                         <td><u class="order-products"><% order.order_details.each do |order_detail| %>
+                         <%= order_detail.product.title %>
+                         <% end %></u></td>
 
-                        <td><u class="order-price"><%= @sum+@shipping_cost %>円</u></td>
+                        <td><u class="order-price"><%= order.total_paymant %>円</u></td>
 
-                         <td><u class="order-show"></u><%= link_to "表示する", class: 'btn btn-primary' %></td>
+                         <td><u class="order-show"></u><%= link_to "表示する",order_path(order.id), class: 'btn btn-primary' %></td>
 
 
                       </section>

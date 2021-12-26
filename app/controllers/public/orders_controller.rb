@@ -2,11 +2,14 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+
     @sum = 0
     @shipping_cost = 800
   end
 
   def show
+    @order = Order.find(params[:id])
+    @shipping_cost = 800
   end
 
   def new
@@ -63,9 +66,11 @@ class Public::OrdersController < ApplicationController
 
    private
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :total_paymant, :shipping_cost)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :total_payment, :shipping_cost)
+
 
   end
+
 
 
 end

@@ -1,4 +1,4 @@
-<h1>注文履歴一覧（top page）</h1>
+<h4>注文履歴一覧（top page）</h4>
 
 <table>
    <thead>
@@ -10,14 +10,18 @@
   </thead>
 
 
-<% @customers.each do |customer| %>
+<% @orders.each do |order| %>
       <tr>
           <div class="customer-item">
             <section class="customer-text">
 
-              <td><%= link_to customer.id,edit_admin_order_path(customer.id)  %></h3></td>
+              <td><%= link_to order.updated_at, edit_admin_order_path(order.id) %></td>
 
-              <td><%= customer.last_name %><%= customer.first_name %></td>
+              <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+
+
+
+
 
             </section>
           </div>
