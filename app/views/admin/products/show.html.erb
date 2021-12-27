@@ -5,22 +5,31 @@
 
     <div class="row">
         <tr>
-        <div class="col-md-4 ">
+        <div class="col-md-6">
         <%= attachment_image_tag @product, :image, :fill, 400, 300, format: 'jpeg' %>
         </div>
         </tr>
 
-        <div class="col-md-8 offset-md-1">
-            <h4>商品名</h4>
-            <div><%= @product.title %></div>
+        <div class="col-md-6">
+          <table>
+            <tr>
+                <td>商品名</td>
+                <td><%= @product.title %></td>
+            </tr></br>
 
-            <h4>商品説明文</h4>
-            <div><%= @product.body %></div>
+            <tr>
+                <td>商品説明文</td>
+                <td><%= @product.body %></td>
+            </tr></br>
 
-            <h4>税抜価格</h4>
-            <div><%= @product.price %>円</div>
+            <tr>
+                <td>税込価格</br>（税抜価格）</td>
+                <td><%= @product.price %>（<%= (@product.price/1.1).floor %>）円</td>
+            </tr></br>
 
-            <%=link_to "編集する", edit_admin_product_path %>
+          </table>
+
+            <%=link_to "編集する", edit_admin_product_path, class: 'btn btn-success' %></div>
         </div>
 
     </div>

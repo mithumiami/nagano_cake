@@ -1,29 +1,35 @@
-<h4>注文履歴一覧（top page）</h4>
+   <div class = "container">
+      <h4>注文履歴一覧</h4>
 
-<table>
-   <thead>
-    <tr>
-      <th>購入日時</th>
-      <th>購入者</th>
-      <th>注文個数</th>
-    </tr>
-  </thead>
+    <div class = "row">
+
+      <div class = "col-sm-12 col-md-8 col-lg-5 mx-auto">
+        <table class = "table table-bordered">
+           <thead>
+            <tr>
+              <th>購入日時</th>
+              <th>購入者</th>
+              <th>注文個数</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @orders.each do |order| %>
+                <tr>
+                    <div class="customer-item">
+                      <section class="customer-text">
+
+                        <td><%= link_to order.updated_at, edit_admin_order_path(order.id) %></td>
+
+                        <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+
+                      </section>
+                    </div>
+                  </tr>
+               <% end %>
+          </tbody>
+        </table>
 
 
-<% @orders.each do |order| %>
-      <tr>
-          <div class="customer-item">
-            <section class="customer-text">
-
-              <td><%= link_to order.updated_at, edit_admin_order_path(order.id) %></td>
-
-              <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-
-
-
-
-
-            </section>
-          </div>
-        </tr>
-     <% end %>
+    </div>
+  </div>

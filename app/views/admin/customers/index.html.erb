@@ -1,36 +1,42 @@
-<h2>会員一覧</h2>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+      <h4 class="my-3 ml-3">会員一覧</h4>
 
-<table>
-   <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
+          <table cellpadding="6">
+             <thead>
+              <tr>
+                <th>会員ID</th>
+                <th>氏名</th>
+                <th>メールアドレス</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
 
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-          <div class="customer-item">
-            <section class="customer-text">
+            <tbody>
+              <% @customers.each do |customer| %>
+                <tr>
+                    <div class="customer-item">
+                      <section class="customer-text">
 
-              <td><h3 class="customer-heading"><%= customer.id %></h3></td>
+                        <td class="customer-heading"><%= customer.id %></td>
 
-              <td><h3 class="customer-heading"><%= customer.last_name %><%= customer.first_name %></h3></td>
+                        <td class="customer-heading"><%= link_to admin_customer_path(customer.id) do %><%= customer.last_name %><%= customer.first_name %><% end %></td>
 
-              <td><h3 class="customer-heading"><%= customer.email %></h3></td>
+                        <td class="customer-heading"><%= customer.email %></td>
 
-              <td><h3 class="customer-heading"><%= customer.is_active ? '有効' : '退会' %> </h3></td>
+                        <td class="customer-heading"><%= customer.is_active ? '有効' : '退会' %> </td>
 
-              <td><%= link_to "詳細", admin_customer_path(customer.id) %></td>
 
-              <td><%= link_to "編集", edit_admin_customer_path(customer.id) %></td>
+                      </section>
+                    </div>
+                  </tr>
+               <% end %>
+            </tbody>
 
-            </section>
-          </div>
-        </tr>
-     <% end %>
-  </tbody>
-</table>
+          </table>
+
+      </div>
+    </div>
+  </div>

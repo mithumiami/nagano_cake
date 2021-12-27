@@ -1,50 +1,58 @@
-<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="my-3 ml-3"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h4>
 
-<table>
+          <table cellpadding="6">
 
-    <tr>
-    <td><h4>会員ID</h4></td>
-    <td><div><%= @customer.id %></div></td>
-    </tr>
+              <tr>
+              <td>会員ID</td>
+              <td><div><%= @customer.id %></div></td>
+              </tr>
 
-    <tr>
-      <td><h4>氏名</h4></td>
-      <td><div><%= @customer.last_name %><%= @customer.first_name %></div></td>
-    </tr>
+              <tr>
+                <td>氏名</td>
+                <td><div><%= @customer.last_name %><%= @customer.first_name %></div></td>
+              </tr>
 
-    <tr>
-      <td><h4>フリガナ</h4></td>
-      <td><div><%= @customer.last_name_kana %><%= @customer.first_name_kana %></div></td>
-    </tr>
+              <tr>
+                <td>フリガナ</td>
+                <td><div><%= @customer.last_name_kana %><%= @customer.first_name_kana %></div></td>
+              </tr>
 
-    <tr>
-      <td><h4>郵便番号</h4></td>
-      <td><div><%= @customer.postal_code %></div></td>
-    </tr>
+              <tr>
+                <td>郵便番号</td>
+                <td><div><%= @customer.postal_code %></div></td>
+              </tr>
 
-    <tr>
-      <td><h4>住所</h4></td>
-      <td><div><%= @customer.address %></div></td>
-    </tr>
+              <tr>
+                <td>住所</td>
+                <td><div><%= @customer.address %></div></td>
+              </tr>
 
-    <tr>
-      <td><h4>電話番号</h4></td>
-      <td><div><%= @customer.telephone_number %></div></td>
-    </tr>
+              <tr>
+                <td>電話番号</td>
+                <td><div><%= @customer.telephone_number %></div></td>
+              </tr>
 
-    <tr>
-      <td><h4>メールアドレス</h4></td>
-      <td><div><%= @customer.email %></div></td>
-    </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><div><%= @customer.email %></div></td>
+              </tr>
 
-    <tr>
-      <td><h4>会員ステータス</h4></td>
-      <td><div><%= @customer.is_active ? '有効' : '退会' %> </div></td>
-    </tr>
+              <tr>
+                <td>会員ステータス</td>
+                <td><div><%= @customer.is_active ? '有効' : '退会' %> </div></td>
+              </tr>
 
-</table>
+          </table>
 
-<%= link_to "編集する",  edit_admin_customer_path %>
-<h6>注文履歴一覧を見る</h6>
+          <%= link_to "編集する",  edit_admin_customer_path(@customer.id), class: 'btn btn-success'  %>
+          <%= link_to "注文履歴一覧を見る", admin_top_path, class:'btn btn-primary' %>
+
+      </div>
+    </div>
+  </div>
 
 

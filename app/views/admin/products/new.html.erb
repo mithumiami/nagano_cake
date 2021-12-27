@@ -1,35 +1,39 @@
 <p id="notice"></p>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-8 px-5 px-sm-0 mx-auto ">
 
 
 
         <h4>新規登録</h4>
 
-        <%= form_with model: @product, url: admin_products_path, local:true do |f| %>
+        <table>
 
-          <div class="form-group">
-            <label>商品画像</label>
-            <%= f.attachment_field :image %>
-          </div>
+            <%= form_with model: @product, url: admin_products_path, local:true do |f| %>
 
-          <div class="form-group">
-            <label>商品名</label>
-            <%= f.text_field :title %>
-          </div>
+              <tr class="form-group">
+                <td>商品画像</td>
+                <td><%= f.attachment_field :image,  class: 'btn btn-default btn-outline-secondary' %></td>
+              </tr>
 
-          <div class="form-group">
-            <label>商品説明</h4>
-            <%= f.text_area :body %>
-          </div>
+              <tr class="form-group">
+                <td>商品名</td>
+                <td><%= f.text_field :title %></td>
+              </tr>
 
-          <div class="form-group">
-            <label>商品価格</label>
-            <div><%= f.text_field :price %>円</div>
-          </div>
+              <tr class="form-group">
+                <td>商品説明</td>
+                <td><%= f.text_area :body %></td>
+              </td>
 
-            <%= f.submit '新規登録' %>
+              <tr class="form-group">
+                <td>商品価格</td>
+                <td><%= f.text_field :price %>円</td>
+              </tr>
+
+            </table>
+
+            <div class= "text-center" ><%= f.submit '新規登録', class: 'btn btn-success' %></div>
 
       </div>
     </div>
