@@ -24,7 +24,7 @@
 
             <tr>
                 <td>税込価格</br>（税抜価格）</td>
-                <td><%= @product.price %>（<%= (@product.price/1.1).floor %>）円</td>
+                <td><%= (@product.price * 1.1).floor %>(<%= @product.price %>) 円</td>
             </tr></br>
 
           </table>

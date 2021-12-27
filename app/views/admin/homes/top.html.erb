@@ -9,7 +9,7 @@
             <tr>
               <th>購入日時</th>
               <th>購入者</th>
-              <th>注文個数</th>
+
             </tr>
           </thead>
 
@@ -22,6 +22,7 @@
                         <td><%= link_to order.updated_at, edit_admin_order_path(order.id) %></td>
 
                         <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+
 
                       </section>
                     </div>

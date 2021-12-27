@@ -10,5 +10,27 @@
         <p>購入には会員登録が必要になります。</p>
 
       </div>
+      <% @products.each do |product| %>
+                <div class="col-md-3">
+                    <div class="product-item">
+                      <section class="product-text">
+
+                        <p class="product-img"><%= link_to product_path(product.id) do %>
+                        <%= attachment_image_tag product, :image, size: "200x150", format: 'jpeg' %>
+                        <% end %></p>
+
+
+                        <u class="product-heading"><%=link_to product.title, product_path(product.id), class: 'text-dark' %></u>
+
+                        <p class="product-price"><%= product.price %>円</p>
+
+
+                      </section>
+
+                    </div>
+                  </div>
+
+              <% end %>
+
     </div>
   </div>
